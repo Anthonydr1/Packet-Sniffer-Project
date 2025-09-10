@@ -24,3 +24,4 @@ def start_sniffing(interface="en0", count=100):
 if __name__ == "__main__":
     start_sniffing()  # Runs with en0, count can be adjusted
 #navigate the directory and run "python3 packet_sniffer.py"
+#capture.pcap can be read with wireshark or tcpdump (tcpdump -r capture.pcap)
