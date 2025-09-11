@@ -1,4 +1,4 @@
-from scapy.all import sniff, wrpcap #loads sniff and wrpcap from Scapy
+cfrom scapy.all import sniff, wrpcap #loads sniff and wrpcap from Scapy
 from scapy.layers.inet import IP, TCP #defines network protocols being analyzed 
 
 # Callback function to process each packet captured by sniff
@@ -17,7 +17,7 @@ def packet_callback(packet):
             wrpcap("capture.pcap", packet, append=True)  # Append each packet to the file
 
 # Sniff packets
-def start_sniffing(interface="en0", count=100):
+def start_sniffing(interface="en0", count=100): #check interface with ifconfig (Linux/macOS) or ipconfig (Windows)
     print(f"Sniffing on {interface}...")
     sniff(iface=interface, prn=packet_callback, filter="tcp", count=count)
 
