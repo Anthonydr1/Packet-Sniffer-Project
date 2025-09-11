@@ -26,7 +26,7 @@ def packet_callback(packet):
             
         wrpcap("capture.pcap", packet, append=True)  # Append each packet to the file
 
-# Sniff packets
+# Sniff packets, check interface with ifconfig (Linux/macOS) or ipconfig (Windows)
 def start_sniffing(interface="en0", count=1500): #count increased since more traffic is analyzed
     print(f"Sniffing on {interface}...")
     sniff(iface=interface, prn=packet_callback, count=count) #removed filter= "tcp"
